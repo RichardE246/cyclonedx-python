@@ -110,6 +110,7 @@ def project2component(project: Dict[str, Any], *,
         description=project.get('description', None) if 'description' not in dynamic else None,
         licenses=licenses_fixup(project2licenses(project, LicenseFactory(), fpath=fpath)),
         external_references=project2extrefs(project),
+        tags=project.get('keywords')
         # TODO add more properties according to spec
     )
 

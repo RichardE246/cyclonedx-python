@@ -87,7 +87,7 @@ class Command:
                         dest='schema_version',
                         choices=SchemaVersion,
                         type=SchemaVersion.from_version,
-                        default=SchemaVersion.V1_5.to_version())
+                        default=SchemaVersion.V1_6.to_version())
         op.add_argument('--of', '--output-format',
                         metavar='<format>',
                         help='The output format for your SBOM'

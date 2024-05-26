@@ -73,6 +73,8 @@ def poetry2component(poetry: Dict[str, Any], *, ctype: 'ComponentType') -> 'Comp
         # the `license` is intended to be the name of a license, not the license text itself.
         licenses.append(lfac.make_from_string(poetry['license'],
                                               license_acknowledgement=lack))
+        
+    print(poetry.get('keywords'))
 
     return Component(
         type=ctype,
@@ -81,6 +83,7 @@ def poetry2component(poetry: Dict[str, Any], *, ctype: 'ComponentType') -> 'Comp
         description=poetry.get('description'),
         licenses=licenses_fixup(licenses),
         external_references=poetry2extrefs(poetry),
+        tags=poetry.get('keywords')
         # TODO add more properties according to spec
     )
 
